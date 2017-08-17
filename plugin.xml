@@ -1,0 +1,29 @@
+<?xml version='1.0' encoding='utf-8'?>
+<plugin id="cordova-plugin-uploadimage" version="1.0.0" xmlns="http://apache.org/cordova/ns/plugins/1.0" xmlns:android="http://schemas.android.com/apk/res/android">
+    <name>ImageUpload</name>
+    <js-module name="ImageUpload" src="www/ImageUpload.js">
+        <clobbers target="cordova.plugins.uploadimage" />
+    </js-module>
+     <!-- android -->
+  	<platform name="android">
+    	<config-file target="res/xml/config.xml" parent="/*">
+      		<feature name="ImageUpload">
+        		<param name="android-package" value="com.huasco.plugins.ImageUploadPlugin"/>
+      		</feature>
+   		 </config-file>
+        <config-file target="AndroidManifest.xml" parent="/*">
+           <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+           <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
+        </config-file>
+    	<source-file src="src/android/CommonAPI.java" target-dir="src/com/huasco/http"/>
+    	<source-file src="src/android/HttpManager.java" target-dir="src/com/huasco/http"/>
+    	<source-file src="src/android/ImageUploadBean.java" target-dir="src/com/huasco/http"/>
+    	<source-file src="src/android/ImageUploadResp.java" target-dir="src/com/huasco/http"/>
+    	<source-file src="src/android/RespModel.java" target-dir="src/com/huasco/http"/>
+    	<source-file src="src/android/UploadImageParam.java" target-dir="src/com/huasco/http"/>
+    	<source-file src="src/android/UploadService.java" target-dir="src/com/huasco/http"/>
+        <source-file src="src/android/FileUtils.java" target-dir="src/com/huasco/utils"/>
+    	<source-file src="src/android/ImageUploadPlugin.java" target-dir="src/com/huasco/plugins"/>
+    	<framework src="com.tamic.novate:novate:1.5.2.3" />
+  	</platform>
+</plugin>
